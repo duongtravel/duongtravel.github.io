@@ -107,7 +107,8 @@
     var $grid = $('.grid').isotope({
         // options
         itemSelector: '.element-item',
-        layoutMode: 'fitRows'
+        layoutMode: 'fitRows',
+        filter: '.grid-1'
     });
     
     // filter items on button click
@@ -125,6 +126,9 @@
         });	
     });
     
+    $(document).ready(function() {
+        $('.filters-button-group a[data-filter=".grid-1"]').addClass('is-checked');
+    });
 
     /* Counter - CountTo */
 	var a = 0;

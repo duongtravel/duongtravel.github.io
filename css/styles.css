@@ -1981,10 +1981,17 @@ a.back-to-top {
 	background: #14bf98 url("../images/up-arrow.png") no-repeat center 47%;
 	background-size: 1.125rem 1.125rem;
 	text-indent: -9999px;
+	opacity: 50%;
+	@media (max-width: 768px) {
+		width: 1.825rem;
+		height: 1.825rem;
+		background-size: 0.8rem 0.8rem;
+	}
 }
 
 a:hover.back-to-top {
 	background-color: #13aa87; 
+	opacity: 100%;
 }
 
 
