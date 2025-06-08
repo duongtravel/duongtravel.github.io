@@ -1885,7 +1885,8 @@ screen and (-ms-high-contrast: none) {
 
 .counter #counter .cell {
 	display: inline-block;
-	width: 9.5rem;
+	/* width: 9.5rem; */
+	margin-right: 30px;
 	margin-bottom: 0.75rem;
 }
 
@@ -1943,7 +1944,6 @@ screen and (-ms-high-contrast: none) {
 }
 
 .form-2 .list-unstyled {
-	margin-bottom: 2.25rem;
 	font-size: 1.15rem;
 	line-height: 1.625rem;
 }
