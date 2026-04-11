@@ -356,3 +356,36 @@
 	});
 
 })(jQuery);
+
+
+/* Scroll Fade-In Animations - Intersection Observer */
+(function () {
+    var animateEls = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right');
+
+    if (!animateEls.length) return;
+
+    // Fallback for very old browsers
+    if (!window.IntersectionObserver) {
+        animateEls.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var delay = parseInt(entry.target.dataset.delay || 0, 10);
+                setTimeout(function () {
+                    entry.target.classList.add('is-visible');
+                }, delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    animateEls.forEach(function (el) {
+        observer.observe(el);
+    });
+})();
