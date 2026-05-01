@@ -101,28 +101,7 @@
     });
     
 
-    /* Filter - Isotope */
-    var $grid = $('.grid').isotope({
-        // options
-        itemSelector: '.element-item',
-        layoutMode: 'fitRows'
-    });
-    
-    // filter items on button click
-    $('.filters-button-group').on( 'click', 'a', function() {
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
-    
-    // change is-checked class on buttons
-    $('.button-group').each( function( i, buttonGroup ) {
-        var $buttonGroup = $( buttonGroup );
-        $buttonGroup.on( 'click', 'a', function() {
-            $buttonGroup.find('.is-checked').removeClass('is-checked');
-            $( this ).addClass('is-checked');
-        });	
-    });
-    
+
 
     /* Counter - CountTo */
 	var a = 0;
@@ -357,6 +336,25 @@
 
 })(jQuery);
 
+
+/* Schedule Filter */
+function filterSchedule(cat, btn) {
+    document.querySelectorAll('.scat-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.stour-wrap').forEach(function(item) {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+    });
+}
+
+/* Schedule accordion — sync aria-expanded for caret rotation */
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.stour-head[data-toggle="collapse"]').forEach(function(head) {
+        var target = document.querySelector(head.getAttribute('data-target'));
+        if (!target) return;
+        $(target).on('show.bs.collapse', function() { head.setAttribute('aria-expanded', 'true'); });
+        $(target).on('hide.bs.collapse', function() { head.setAttribute('aria-expanded', 'false'); });
+    });
+});
 
 /* Scroll Fade-In Animations - Intersection Observer */
 (function () {

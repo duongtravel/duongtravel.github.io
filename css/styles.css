@@ -1544,108 +1544,6 @@ input[type='checkbox'] {
 }
 
 
-/************************/
-/*     12. Projects     */
-/************************/
-.filter {
-	padding-top: 2.5rem;
-	/* padding-bottom: 7rem; */
-}
-
-.filter .section-title {
-	margin-bottom: 0.5rem;
-}
-
-.filter h2,
-.filter .section-title {
-	text-align: center;
-}
-
-.filter h2 {
-	margin-bottom: 3.25rem;
-}
-
-.filter .button-group {
-	text-align: center;
-}
-
-.filter .button-group a {
-	display: inline-block;
-	margin-right: 0.1875rem;
-	margin-bottom: 0.5rem;
-	margin-left: 0.1875rem;
-	padding: 0.3125rem 1.375rem 0.25rem 1.375rem;
-	border-radius: 0.25rem;
-	background-color: #f1f4f7;
-	color: #7b7e85;
-	font: 700 1rem/1.25rem "Nunito";
-	cursor: pointer;
-	transition: all 0.2s ease;
-}
-
-.filter .button-group a:hover {
-	background-color: #14bf98;
-	color: #fff;
-}
-
-.filter .button-group a.button.is-checked {
-	background-color: #14bf98;
-	color: #fff;
-}
-
-.filter .grid {
-	margin-top: 1.25rem;
-	border-radius: 0.375rem;
-}
-
-/* Hover Animation */
-.filter .element-item {
-	position: relative;
-	float: left;
-	overflow: hidden;
-	width: 50%;
-	background-color: #fff;
-	padding: 5px;
-}
-
-.filter .element-item img {
-	max-width: 100%;
-	margin: 0;
-	transition: all 0.3s;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.filter .element-item:hover img {
-	-moz-transform: scale(1.15);
-	-webkit-transform: scale(1.15);
-	transform: scale(1.15);
-} 
-/* end of hover animation */
-
-.filter .element-item .element-item-overlay { 
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-	opacity: 1;
-	text-align: center;
-	transition: all 0.3s;
-}
-
-.filter .element-item .element-item-overlay span { 
-	position: absolute;
-	z-index: 3;
-	top: 42%;
-	right: 0;
-	left: 0;
-	color: #fff;
-	font: 700 1.125rem/1.625rem "Nunito";
-}
 
 
 /**********************************/
@@ -2262,20 +2160,6 @@ a:hover.back-to-top {
 	/* end of testimonials */
 
 
-	/* Projects */
-	.filter .element-item { 
-		width: 25%; 
-	}
-	
-	.filter .element-item .element-item-overlay { 
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
-
-	.filter .element-item:hover .element-item-overlay {
-		opacity: 1;
-	}
-	/* end of projects */
 
 
 	/* About */
@@ -2661,16 +2545,6 @@ a:hover.back-to-top {
 	/* end of call me */
 
 
-	/* Projects */
-	.filter .element-item {
-		width: 17.3125rem; /* to eliminate grid overflow problem on hard refresh */
-		height: 16.875rem;
-	}
-
-	.filter .element-item .element-item-overlay span { 
-		top: 45%;
-	}
-	/* end of projects */
 
 
 	/* Team */
@@ -2868,6 +2742,8 @@ html {
 		padding: 0.5rem 1rem 1rem;
 		border-top: 1px solid rgba(255, 255, 255, 0.1);
 		margin-top: 0.25rem;
+		position: relative;
+		z-index: 1031;
 	}
 
 	.navbar-custom .nav-item .nav-link {
@@ -3029,32 +2905,6 @@ html {
 	}
 }
 
-/* --- Mobile: Photo grid --- */
-@media (max-width: 767px) {
-	.filter .element-item {
-		width: 50%;
-		height: auto;
-	}
-
-	.filter .element-item img {
-		height: 140px;
-	}
-
-	.filter h2 {
-		font-size: 1.4rem;
-	}
-}
-
-@media (max-width: 479px) {
-	.filter .element-item {
-		width: 100%;
-	}
-
-	.filter .element-item img {
-		height: 200px;
-	}
-}
-
 /* --- Mobile: Feedback slider --- */
 @media (max-width: 767px) {
 	.slider {
@@ -3083,6 +2933,250 @@ html {
 		align-items: flex-start;
 		flex-direction: column;
 	}
+}
+
+
+/* ============================================================
+   SCHEDULE SECTION
+   ============================================================ */
+
+/* Header */
+.schedule-header-bg {
+	background: linear-gradient(135deg, #113448 0%, #14bf98 100%);
+	padding: 4.5rem 0 3rem;
+	text-align: center;
+}
+.schedule-main-title {
+	color: #fff;
+	font-size: 2.2rem;
+	font-weight: 800;
+	margin-bottom: 0.5rem;
+}
+.schedule-subtitle {
+	color: rgba(255,255,255,0.8);
+	font-size: 1rem;
+	margin-bottom: 0;
+}
+.schedule-body {
+	padding: 2.5rem 0 4rem;
+}
+
+/* Filter Tabs */
+.scat-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.6rem;
+	margin-bottom: 2rem;
+}
+.scat-btn {
+	background: #fff;
+	border: 2px solid #e0e5ea;
+	border-radius: 2rem;
+	padding: 0.5rem 1.2rem;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #4a5568;
+	cursor: pointer;
+	transition: all 0.22s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+.scat-btn span {
+	background: #e0e5ea;
+	color: #4a5568;
+	border-radius: 1rem;
+	padding: 0.1rem 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	transition: all 0.22s ease;
+}
+.scat-btn:hover,
+.scat-btn.active {
+	background: #14bf98;
+	border-color: #14bf98;
+	color: #fff;
+}
+.scat-btn:hover span,
+.scat-btn.active span {
+	background: rgba(255,255,255,0.25);
+	color: #fff;
+}
+
+/* Tour Cards */
+.stour-wrap {
+	margin-bottom: 0.85rem;
+}
+.stour-card {
+	background: #fff;
+	border-radius: 0.875rem;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+	overflow: hidden;
+	transition: box-shadow 0.25s ease;
+}
+.stour-card:hover {
+	box-shadow: 0 6px 22px rgba(0,0,0,0.13);
+}
+.stour-card-md .stour-head {
+	border-left: 4px solid #f0a500;
+}
+.stour-head {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 1.25rem;
+	cursor: pointer;
+	border-left: 4px solid #14bf98;
+	user-select: none;
+	transition: background 0.2s ease;
+}
+.stour-head:hover {
+	background: #f7fdf9;
+}
+.stour-head[aria-expanded="true"] {
+	background: #f7fdf9;
+}
+.stour-badges {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	flex-shrink: 0;
+}
+.sdur-badge {
+	border-radius: 0.4rem;
+	padding: 0.22rem 0.6rem;
+	font-size: 0.75rem;
+	font-weight: 800;
+	text-align: center;
+	min-width: 48px;
+}
+.sdur-2n { background: #e8f8f4; color: #0a9e7e; }
+.sdur-3n { background: #e8f0f8; color: #1a5580; }
+.sdur-4n { background: #fde8ec; color: #c0253e; }
+
+.stype-badge {
+	border-radius: 0.4rem;
+	padding: 0.15rem 0.45rem;
+	font-size: 0.65rem;
+	font-weight: 700;
+	text-align: center;
+	white-space: nowrap;
+}
+.stype-kp { background: #e8f8f4; color: #0a9e7e; }
+.stype-md { background: #fff4e0; color: #b07000; }
+
+.stour-title-wrap {
+	flex: 1;
+}
+.stour-title-wrap h5 {
+	margin: 0 0 0.2rem;
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: #113448;
+}
+.stour-route {
+	font-size: 0.78rem;
+	color: #6c757d;
+}
+.stour-route i {
+	color: #14bf98;
+	margin-right: 0.3rem;
+}
+.stour-caret {
+	color: #adb5bd;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+	font-size: 0.85rem;
+}
+.stour-head[aria-expanded="true"] .stour-caret {
+	transform: rotate(180deg);
+}
+
+/* Tour Content - Day Timeline */
+.stour-content {
+	padding: 1rem 1.5rem 1.5rem;
+	border-top: 1px solid #f0f0f0;
+}
+.sday {
+	margin-bottom: 1.2rem;
+}
+.sday:last-child {
+	margin-bottom: 0;
+}
+.sday-note {
+	background: #fffbea;
+	border-left: 3px solid #f0a500;
+	padding: 0.6rem 0.9rem;
+	border-radius: 0 0.4rem 0.4rem 0;
+	font-size: 0.82rem;
+	color: #7a5a00;
+	margin-bottom: 1rem;
+}
+.sday-head {
+	display: flex;
+	align-items: baseline;
+	gap: 0.75rem;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.4rem;
+	border-bottom: 1px dashed #dee2e6;
+}
+.sday-num {
+	background: #14bf98;
+	color: #fff;
+	border-radius: 0.4rem;
+	padding: 0.2rem 0.65rem;
+	font-size: 0.75rem;
+	font-weight: 800;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+.sday-title {
+	font-size: 0.88rem;
+	font-weight: 700;
+	color: #113448;
+}
+.sday-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.sday-list li {
+	display: flex;
+	gap: 0.6rem;
+	padding: 0.3rem 0;
+	font-size: 0.83rem;
+	color: #4a5568;
+	border-bottom: 1px solid #f8f9fa;
+	line-height: 1.5;
+}
+.sday-list li:last-child {
+	border-bottom: none;
+}
+.stime {
+	background: #f0fdfb;
+	color: #0a9e7e;
+	border-radius: 0.3rem;
+	padding: 0.05rem 0.45rem;
+	font-size: 0.72rem;
+	font-weight: 700;
+	white-space: nowrap;
+	flex-shrink: 0;
+	align-self: flex-start;
+	margin-top: 0.12rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 575px) {
+	.schedule-main-title { font-size: 1.6rem; }
+	.scat-tabs { gap: 0.4rem; }
+	.scat-btn { font-size: 0.78rem; padding: 0.4rem 0.85rem; }
+	.stour-head { padding: 0.85rem 1rem; gap: 0.7rem; }
+	.stour-title-wrap h5 { font-size: 0.88rem; }
+	.stour-route { font-size: 0.72rem; }
+	.stour-content { padding: 0.8rem 1rem 1.2rem; }
+	.sday-title { font-size: 0.82rem; }
+	.sday-list li { font-size: 0.78rem; }
 }
 
 /* --- Mobile: Back-to-top --- */
@@ -3386,151 +3480,150 @@ html {
 
 
 /* =======================================================
-   PRICING SECTION — BẢNG GIÁ
+   PRICING SECTION — BẢNG GIÁ (Thiết kế mới — 1 loại giá)
    ======================================================= */
+
+/* ----- Header banner ----- */
+.pricing-header-bg {
+	background: linear-gradient(135deg, #113448 0%, #14bf98 100%);
+	padding: 4.5rem 0 3.5rem;
+	text-align: center;
+}
+
+.pricing-main-title {
+	color: #fff;
+	font-size: 2.4rem;
+	font-weight: 800;
+	margin-bottom: 0.6rem;
+}
+
+.pricing-subtitle {
+	color: rgba(255,255,255,0.85);
+	font-size: 1.05rem;
+}
+
+/* ----- Pricing section wrapper ----- */
 .pricing-section {
-	padding: 5rem 0 3rem;
+	padding: 0 0 4rem;
 	background: #f7f9fb;
 }
 
-.pricing-title {
-	font-size: 2rem;
-	color: #113448;
-	margin-bottom: 0.4rem;
-}
-
-/* ----- Pricing Table ----- */
-.pricing-table-wrap {
-	border-radius: 0.75rem;
-	overflow: hidden;
-	box-shadow: 0 6px 28px rgba(0, 0, 0, 0.1);
-	/* desktop: clip overflow cho bảng gọn */
-}
-
-.pricing-table {
-	margin-bottom: 0;
-	border-collapse: collapse;
-	width: 100%;
+/* ----- New price cards ----- */
+.new-price-card {
 	background: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pricing-table thead tr {
-	background: #113448;
-	color: #fff;
+.new-price-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 16px 42px rgba(0,0,0,0.15);
 }
 
-.pricing-table thead th {
-	padding: 1rem 0.9rem;
+.npc-header {
+	padding: 1.5rem 1.25rem 1rem;
 	text-align: center;
-	font-size: 0.82rem;
-	font-weight: 700;
-	letter-spacing: 0.03em;
-	border: none;
-	vertical-align: middle;
 }
 
-.pricing-table thead th small {
-	display: block;
-	font-weight: 400;
-	font-size: 0.75rem;
-	opacity: 0.85;
-	margin-top: 0.2rem;
-}
+.npc-header-1 { background: linear-gradient(135deg, #14bf98, #0a9e7e); }
+.npc-header-2 { background: linear-gradient(135deg, #113448, #1a5580); }
+.npc-header-3 { background: linear-gradient(135deg, #e94560, #c0253e); }
 
-.pricing-table th.col-people {
-	width: 18%;
-}
-
-/* Separator row giữa các nhóm tour */
-.pricing-table tr.tour-separator td {
-	background: #113448;
-	color: #fff;
-	font-weight: 700;
-	font-size: 0.95rem;
-	padding: 0.65rem 1rem;
-	letter-spacing: 0.03em;
-}
-
-.tour-sep-badge {
+.npc-badge {
 	display: inline-block;
-	background: #14bf98;
+	background: rgba(255,255,255,0.25);
+	color: #fff;
+	border-radius: 2rem;
+	padding: 0.18rem 0.85rem;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-bottom: 0.45rem;
+}
+
+.npc-header h4 {
 	color: #fff;
 	font-weight: 800;
-	font-size: 0.82rem;
-	padding: 0.15rem 0.55rem;
-	border-radius: 0.3rem;
-	margin-right: 0.5rem;
-	letter-spacing: 0.04em;
+	margin: 0;
+	font-size: 1.25rem;
 }
 
-.pricing-table tbody tr:not(.tour-separator) {
-	border-bottom: 1px solid #eee;
-	transition: background 0.15s;
-}
-
-.pricing-table tbody tr:not(.tour-separator):hover {
-	background: rgba(20, 191, 152, 0.05);
-}
-
-.pricing-table tbody td {
-	padding: 0.7rem 0.9rem;
-	text-align: center;
-	font-size: 0.9rem;
-	color: #444;
-	vertical-align: middle;
-}
-
-/* Cột số người — căn trái */
-.pricing-table tbody td:first-child {
-	text-align: left;
-	font-weight: 600;
-	color: #ffffff;
-}
-
-.price-na {
-	color: #bbb !important;
-	font-weight: 400 !important;
-}
-
-/* Price cells */
-.price-cell {
+.npc-popular {
+	display: inline-block;
+	background: #ffd700;
+	color: #113448;
+	border-radius: 2rem;
+	padding: 0.15rem 0.7rem;
+	font-size: 0.68rem;
 	font-weight: 700;
-	color: #113448 !important;
-	font-size: 0.95rem !important;
+	margin-top: 0.45rem;
 }
 
-.price-cell span {
-	font-size: 0.75rem;
+.npc-body {
+	padding: 0.75rem 1.25rem;
+	flex: 1;
+}
+
+.npc-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.65rem 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.npc-row:last-child { border-bottom: none; }
+
+.npc-group {
+	color: #555;
+	font-size: 0.88rem;
+}
+
+.npc-group i {
+	color: #14bf98;
+	margin-right: 0.35rem;
+	width: 14px;
+	text-align: center;
+}
+
+.npc-price {
+	font-weight: 700;
+	color: #113448;
+	font-size: 0.9rem;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.npc-price small {
 	font-weight: 400;
 	color: #888;
+	font-size: 0.72rem;
 }
 
-.pricing-note {
-	font-size: 0.83rem;
-	color: #888;
-	margin-top: 0.75rem;
+.npc-xe7cho {
+	background: #f0fdfb;
+	border-top: 2px solid #14bf98;
+	padding: 0.65rem 1.25rem;
+	font-size: 0.82rem;
+	color: #333;
 	text-align: center;
 }
 
-.pricing-note i {
-	color: #14bf98;
-	margin-right: 0.3rem;
+.npc-xe7cho i { color: #14bf98; margin-right: 0.3rem; }
+
+.npc-featured {
+	transform: scale(1.03);
+	box-shadow: 0 12px 40px rgba(17,52,72,0.22);
 }
 
-/* ----- Column badges ----- */
-.th-badge {
-	display: inline-block;
-	padding: 0.25rem 0.65rem;
-	border-radius: 2rem;
-	font-size: 0.75rem;
-	font-weight: 700;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
+.npc-featured:hover {
+	transform: scale(1.03) translateY(-6px);
 }
-
-.badge-kham-pha { background: rgba(20, 191, 152, 0.22); color: #0a9e7e; }
-.badge-cao-cap  { background: rgba(255, 193, 7, 0.25);  color: #9a7000; }
-.badge-xe-may   { background: rgba(233, 69, 96, 0.18);  color: #c0253e; }
 
 /* ----- Included Services Common Box ----- */
 .included-title {
@@ -3572,76 +3665,6 @@ html {
 	margin-right: 0.5rem;
 	width: 1rem;
 }
-
-/* ----- Included Service Cards ----- */
-.included-card {
-	border-radius: 0.75rem;
-	overflow: hidden;
-	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	background: #fff;
-}
-
-/* Placeholder khi chưa có ảnh */
-.included-card-img-placeholder {
-	height: 130px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: 2.5rem;
-	gap: 0.4rem;
-	position: relative;
-}
-
-.included-card-img-placeholder span {
-	font-size: 0.65rem;
-	color: rgba(255,255,255,0.7);
-	font-style: italic;
-}
-
-/* Ảnh thật khi đã thêm */
-.included-card-img {
-	width: 100%;
-	height: 160px;
-	object-fit: cover;
-}
-
-.card-kham-pha .included-card-img-placeholder { background: linear-gradient(135deg, #14bf98, #0a9e7e); color: #fff; }
-.card-cao-cap  .included-card-img-placeholder { background: linear-gradient(135deg, #f0a500, #e07b00); color: #fff; }
-.card-xe-may   .included-card-img-placeholder { background: linear-gradient(135deg, #e94560, #c0253e); color: #fff; }
-
-.included-card-body {
-	padding: 1.25rem 1.4rem;
-	flex: 1;
-}
-
-.included-card-body h5 {
-	font-weight: 700;
-	color: #113448;
-	margin-bottom: 0.9rem;
-	font-size: 0.95rem;
-}
-
-.included-card-body ul li {
-	padding: 0.28rem 0;
-	font-size: 0.87rem;
-	color: #555;
-	display: flex;
-	align-items: flex-start;
-	gap: 0.45rem;
-}
-
-.included-card-body ul li i {
-	margin-top: 0.2rem;
-	flex-shrink: 0;
-}
-
-.card-kham-pha .included-card-body ul li i { color: #14bf98; }
-.card-cao-cap  .included-card-body ul li i { color: #f0a500; }
-.card-xe-may   .included-card-body ul li i { color: #e94560; }
 
 /* ----- Policy Cards ----- */
 .policy-card {
@@ -3692,140 +3715,131 @@ html {
 	margin-bottom: 1rem;
 }
 
-/* =======================================================
-   PRICING — MOBILE CARD LAYOUT (≤ 767px)
-   Chuyển bảng thành dạng card đọc được trên điện thoại
-   ======================================================= */
+/* ----- Pricing mobile responsive ----- */
 @media (max-width: 767px) {
-
-	.pricing-section {
-		padding: 3rem 0 2rem;
+	.pricing-header-bg {
+		padding: 3rem 0 2.5rem;
 	}
 
-	.pricing-title {
-		font-size: 1.55rem;
+	.pricing-main-title {
+		font-size: 1.7rem;
 	}
 
-	/* Bỏ border-radius/shadow bao ngoài — dùng card riêng cho mỗi row */
-	.pricing-table-wrap {
-		border-radius: 0;
-		overflow: visible;
-		box-shadow: none;
-		background: transparent;
+	.npc-featured {
+		transform: none;
+		box-shadow: 0 8px 28px rgba(0,0,0,0.1);
 	}
 
-	/* Ẩn thead (header cột) */
-	.pricing-table thead {
-		display: none;
+	.npc-featured:hover {
+		transform: translateY(-6px);
 	}
 
-	/* Bảng không còn là table thật — chuyển sang block */
-	.pricing-table,
-	.pricing-table tbody,
-	.pricing-table tr,
-	.pricing-table td {
-		display: block;
-		width: 100%;
-	}
-
-	/* Separator row: tiêu đề nhóm tour */
-	.pricing-table tr.tour-separator {
-		margin: 1.5rem 0 0.5rem;
-		border-radius: 0.5rem;
-		overflow: hidden;
-	}
-
-	.pricing-table tr.tour-separator td {
-		border-radius: 0.5rem;
-		font-size: 1rem;
-		padding: 0.7rem 1.1rem;
-	}
-
-	/* Mỗi data row = 1 card */
-	.pricing-table tbody tr:not(.tour-separator) {
-		background: #fff;
-		border-radius: 0.6rem;
-		margin-bottom: 0.6rem;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-		overflow: hidden;
-		border: none;
-	}
-
-	/* Ô đầu tiên (số người) = card header */
-	.pricing-table tbody tr:not(.tour-separator) td:first-child {
-		background: rgba(20, 191, 152, 0.1);
-		padding: 0.6rem 1rem;
-		font-weight: 700;
-		color: #113448;
-		font-size: 0.92rem;
-		border-bottom: 1px solid rgba(20, 191, 152, 0.2);
-		text-align: left;
-	}
-
-	.pricing-table tbody tr:not(.tour-separator) td:first-child::before {
-		content: '👥 ';
-	}
-
-	/* Các ô giá: layout 2 cột (label | giá) */
-	.pricing-table tbody tr:not(.tour-separator) td:not(:first-child) {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.55rem 1rem;
-		border-bottom: 1px solid #f5f5f5;
-		text-align: right;
-	}
-
-	.pricing-table tbody tr:not(.tour-separator) td:not(:first-child):last-child {
-		border-bottom: none;
-	}
-
-	/* Tên cột từ data-label */
-	.pricing-table tbody tr:not(.tour-separator) td:not(:first-child)::before {
-		content: attr(data-label);
-		font-size: 0.78rem;
-		font-weight: 600;
-		color: #888;
-		text-align: left;
-		flex-shrink: 0;
-		margin-right: 0.5rem;
-	}
-
-	/* Màu label tương ứng từng loại tour */
-	.pricing-table tbody tr:not(.tour-separator) td[data-label="Khám Phá"]::before { color: #0a9e7e; }
-	.pricing-table tbody tr:not(.tour-separator) td[data-label="Cao Cấp"]::before  { color: #9a7000; }
-	.pricing-table tbody tr:not(.tour-separator) td[data-label="Xe Máy"]::before   { color: #c0253e; }
-
-	/* Giá tiền căn phải */
-	.pricing-table tbody tr:not(.tour-separator) td.price-cell {
-		font-size: 0.9rem !important;
-		text-align: right;
-	}
-
-	/* Ẩn note trên mobile nếu quá chật */
-	.pricing-note {
-		font-size: 0.8rem;
-		text-align: left;
-	}
-
-	/* Included section */
 	.included-common {
 		padding: 1.2rem 1rem;
-	}
-
-	.policy-row .col-md-6:first-child {
-		margin-bottom: 1rem;
 	}
 }
 
 @media (max-width: 575px) {
-	.included-card-img-placeholder {
-		height: 100px;
+	.npc-price {
+		font-size: 0.82rem;
+	}
+}
+
+
+/* =======================================================
+   ACCOMMODATION SECTION — PHÒNG NGHỈ
+   ======================================================= */
+.accommodation-section {
+	padding: 5rem 0;
+	background: #f8f9fb;
+}
+
+/* ----- Room card ----- */
+.room-card {
+	background: #fff;
+	border-radius: 0.875rem;
+	overflow: hidden;
+	box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+	transition: transform 0.28s ease, box-shadow 0.28s ease;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.room-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 12px 32px rgba(20,191,152,0.15);
+}
+
+.room-card-img {
+	height: 130px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	color: #fff;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.room-card-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* 4 cycling accent colors */
+.room-color-1 { background: linear-gradient(135deg, #14bf98, #0a9e7e); }
+.room-color-2 { background: linear-gradient(135deg, #113448, #1a5580); }
+.room-color-3 { background: linear-gradient(135deg, #f0a500, #e07b00); }
+.room-color-4 { background: linear-gradient(135deg, #e94560, #c0253e); }
+
+.room-card-body {
+	padding: 1rem 1.1rem 1.1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	flex: 1;
+}
+
+.room-name {
+	font-weight: 700;
+	color: #113448;
+	font-size: 0.93rem;
+	margin: 0;
+	line-height: 1.3;
+}
+
+.room-book-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.3rem;
+	background: #14bf98;
+	color: #fff;
+	padding: 0.42rem 1rem;
+	border-radius: 0.4rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	transition: background 0.2s ease;
+	text-decoration: none;
+	text-align: center;
+}
+
+.room-book-btn:hover {
+	background: #0a9e7e;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* ----- Accommodation mobile ----- */
+@media (max-width: 575px) {
+	.room-card-img {
+		height: 110px;
 		font-size: 2rem;
 	}
 
-	/* Giá tiền thu nhỏ chút trên màn rất nhỏ */
-	.pricing-table tbody tr:not(.tour-separator) td.price-cell {
-		font-size: 0.85rem !important;
+	.room-name {
+		font-size: 0.85rem;
 	}
 }
